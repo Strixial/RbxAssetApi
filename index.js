@@ -4,6 +4,7 @@ const { XMLParser } = require("fast-xml-parser");
 
 const app = express();
 const parser = new XMLParser();
+const port = process.env.PORT || 4000;
 
 app.get("/convert/:assetId", async (req, res) => {
     const { assetId } = req.params;
@@ -34,6 +35,6 @@ app.get("/convert/:assetId", async (req, res) => {
     }
 });
 
-app.listen(80, () => {
+app.listen(port, () => {
     console.log("Converter service running");
 });
